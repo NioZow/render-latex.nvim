@@ -1389,6 +1389,24 @@ describe("render_latex.config", function()
     config.setup()
   end)
 
+  it("defaults render.align to center", function()
+    assert.are.equal("center", config.values().render.align)
+    assert.are.equal("center", config.render.align)
+  end)
+
+  it("accepts render.align left and rejects other values", function()
+    config.setup({ render = { align = "left" } })
+    assert.are.equal("left", config.render.align)
+
+    config.setup({ render = { align = "center" } })
+    assert.are.equal("center", config.render.align)
+
+    assert.has.errors(function()
+      config.setup({ render = { align = "right" } })
+    end)
+    config.setup()
+  end)
+
   it("rejects invalid nested numeric values", function()
     assert.has.errors(function()
       config.setup({ image = { cell_width_px = 0 } })

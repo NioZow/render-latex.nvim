@@ -20,6 +20,7 @@
 ---@field equation_labels false|'right'|'sign'|'both'
 ---@field equation_label_format string
 ---@field padding number
+---@field align 'left'|'center'
 ---@field scale number
 ---@field inline false|'conceal'|'content'|'highlight'
 ---@field inline_symbols boolean
@@ -88,6 +89,7 @@ local defaults = {
     equation_labels = "right",
     equation_label_format = "Eq. %d",
     padding = 10,
+    align = "center",
     scale = 1.5,
     inline = "conceal",
     inline_symbols = true,
@@ -201,6 +203,7 @@ function M.setup(opts)
   end
 
   validate_enum("render.preset", config.render.preset, { "match_text", "compact", "presentation" })
+  validate_enum("render.align", config.render.align, { "left", "center" })
   validate_enum("image.backend", config.image.backend, { "auto", "nvim", "kitty" })
   if config.render.inline ~= false then
     validate_enum("render.inline", config.render.inline, { "conceal", "content", "highlight" })

@@ -6,6 +6,10 @@ This project follows a practical changelog format inspired by [Keep a Changelog]
 
 ## Unreleased
 
+### Added
+
+- Added the `render.align` option to place rendered display equations at the left edge of their bounds (`"left"`) instead of centring them; `"center"` remains the default.
+
 ### Fixed
 
 - Moved the rolling `unreleased` tag after publishing worker assets so source archives match the published build.

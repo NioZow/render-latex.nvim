@@ -865,7 +865,10 @@ local function update_image(bufnr, winid, equation, meta, backend, window, previ
   local bounds = Sources.image_bounds(bufnr, winid, window, position)
   local width = math.max(1, bounds.width or window.width)
   local start_col = bounds.start_col or position.col
-  local col = start_col + math.max(0, math.floor((width - meta.width_cells) / 2))
+  local col = start_col
+  if Config.render.align ~= "left" then
+    col = start_col + math.max(0, math.floor((width - meta.width_cells) / 2))
+  end
   local opts = {
     row = row,
     col = col,

@@ -86,6 +86,7 @@ require("render_latex").setup({
     inline_symbols = true,
     live_preview = true,
     hide_on_cmdline = false,
+    align = "center", -- "left" or "center"
   },
 })
 ```

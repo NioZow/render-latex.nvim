@@ -241,6 +241,10 @@ Render options:
                                                *render-latex-render.padding*
 `render.padding`         Padding around rendered equations. Default: `10`.
 
+                                                 *render-latex-render.align*
+`render.align`           Horizontal placement of rendered equations. Values:
+                         `"left"` or `"center"`. Default: `"center"`.
+
                                                  *render-latex-render.scale*
 `render.scale`           Render scale sent to the worker. Default: `1.5`.
 
